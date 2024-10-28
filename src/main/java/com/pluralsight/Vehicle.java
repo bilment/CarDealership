@@ -1,28 +1,28 @@
 package com.pluralsight;
 
 public class Vehicle {
-    private int id;
+    private int vin;
     private int year;
     private String make;
     private String model;
     private String type;
     private String color;
-    private int mileage;
+    private int odometer;
     private double price;
 
-    public Vehicle(int id, int year, String make, String model, String type, String color, int mileage, double price) {
-        this.id = id;
+    public Vehicle(int vin, int year, String make, String model, String type, String color, int odometer, double price) {
+        this.vin = vin;
         this.year = year;
         this.make = make;
         this.model = model;
         this.type = type;
         this.color = color;
-        this.mileage = mileage;
+        this.odometer = odometer;
         this.price = price;
     }
 
-    public int getId() {
-        return id;
+    public int getVin() {
+        return vin;
     }
 
     public int getYear() {
@@ -45,8 +45,8 @@ public class Vehicle {
         return color;
     }
 
-    public int getMileage() {
-        return mileage;
+    public int getOdometer() {
+        return odometer;
     }
 
     public double getPrice() {
@@ -56,13 +56,13 @@ public class Vehicle {
     @Override
     public String toString() {
         return "Vehicle{" +
-                "id=" + id +
+                "vin=" + vin +
                 ", year=" + year +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", type='" + type + '\'' +
                 ", color='" + color + '\'' +
-                ", mileage=" + mileage +
+                ", odometer=" + odometer +
                 ", price=" + price +
                 '}';
     }

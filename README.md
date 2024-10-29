@@ -2,12 +2,19 @@
 
 ## Description of the Project
 
+The Car Dealership Management System is a simple Java program that helps manage a car dealerships inventory. 
+Users can add new cars, view all available cars, and search for cars by make like Honda or Ford. 
+This program uses a CSV file to store all car information, so it’s easy to update and retrieve car details.
 
 
 ## User Stories
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
+- As a dealership manager, I want to add new cars to the inventory so that the list of cars stays current.
+- As a salesperson, I want to search for cars by make so that I can find cars that match customer needs quickly.
+- As a dealership employee, I want to see all cars in the inventory so that I can help customers find options.
+ -As a developer, I want the program to handle errors smoothly so that it runs without issues, even if there’s incorrect data.
 
 
 ## Setup
@@ -26,8 +33,8 @@ Follow these steps to get your application running within IntelliJ IDEA:
 1. Open IntelliJ IDEA.
 2. Select "Open" and navigate to the directory where you cloned or downloaded the project.
 3. After the project opens, wait for IntelliJ to index the files and set up the project.
-4. Find the Store class that contains the public static void main(String[] args) method.
-5. Right-click on the Store class and select 'Run' to start the application.
+4. Locate the Program class with the public static void main(String[] args) method.
+5. Right-click on the Program class and select 'Run' to start the application.
 
 ## Technologies Used
 
@@ -36,13 +43,14 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
+- Running ![CarDealership.png](imgs/CarDealership.png)
 
 ## Future Work
 
 Outline potential future enhancements or functionalities you might consider adding:
 
-- Additional feature to be developed.
-- Improvement of current functionalities.
+- Adding vehicle filtering options based on price, mileage, or year. 
+- Implementing a graphical user interface (GUI) for an enhanced user experience.
 
 ## Resources
 

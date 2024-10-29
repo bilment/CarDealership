@@ -2,7 +2,6 @@ package com.pluralsight;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.List;
 
 public class DealershipFileManager {
 
@@ -16,7 +15,7 @@ public class DealershipFileManager {
 
                 String[] parts = line.split("\\|");
 
-                int vin = Integer.parseInt(parts[0]);
+                String vin = parts[0];
                 int year = Integer.parseInt(parts[1]);
                 String make = parts[2];
                 String model = parts[3];

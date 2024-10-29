@@ -27,13 +27,14 @@ public class UserInterface {
 
             switch (choice) {
                 case 1:
-                    listAllVehicles();
+                    listingVehicles();
                     break;
                 case 2:
                     searchByMake();
                     break;
                 case 3:
                     System.out.println("Exiting the program");
+                    running = false;
                     break;
                 default:
                     System.out.println("Invalid input, try again");
@@ -41,7 +42,7 @@ public class UserInterface {
         }
     }
 
-    private void listAllVehicles() {
+    private void listingVehicles() {
 
         System.out.println("Listing all vehicles:");
 
@@ -63,5 +64,38 @@ public class UserInterface {
                 System.out.println(vehicle);
             }
         }
+    }
+    private void addNewVehicle() {
+        System.out.print("Enter VIN: ");
+        String vin = scanner.nextLine();
+
+        System.out.print("Enter year: ");
+        int year = scanner.nextInt();
+        scanner.nextLine();  // consume next line
+
+        System.out.print("Enter make: ");
+        String make = scanner.nextLine();
+
+        System.out.print("Enter model: ");
+        String model = scanner.nextLine();
+
+        System.out.print("Enter type: ");
+        String type = scanner.nextLine();
+
+        System.out.print("Enter color: ");
+        String color = scanner.nextLine();
+
+        System.out.print("Enter odometer reading: ");
+        int odometer = scanner.nextInt();
+        scanner.nextLine();  // consume next line
+
+        System.out.print("Enter price: ");
+        double price = scanner.nextDouble();
+        scanner.nextLine();  // consume next line
+
+        Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+        dealership.addVehicle(newVehicle);
+
+        System.out.println("New vehicle added!");
     }
 }

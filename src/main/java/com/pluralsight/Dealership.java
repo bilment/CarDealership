@@ -23,7 +23,7 @@ public class Dealership {
     public void displayInventory() {
         for (Vehicle vehicle : inventory) {
             System.out.println(vehicle);
-            
+
         }
     }
 

@@ -14,16 +14,17 @@ public class UserInterface {
     }
 
     public void showMenu() {
-        boolean running =true;
+        boolean running = true;
 
         while (running) {
             System.out.println("Welcome to " + dealership.getName() + " Dealership!");
             System.out.println("1. List all vehicles");
-            System.out.println("2. Search vehicles by make");
-            System.out.println("3. Add a new vehicle");
+            System.out.println("2. Search vehicles by make/model");
+            System.out.println("3. Find vehicle by year range");
             System.out.println("4. Update vehicle details");
             System.out.println("5. Reserve a vehicle for a customer");
             System.out.println("6. Check and update vehicle service status");
+            System.out.println("8. Add a new vehicle");
             System.out.println("99. Exit");
             System.out.print("Please enter your choice: ");
             int choice = scanner.nextInt();
@@ -34,9 +35,9 @@ public class UserInterface {
                     listingVehicles();
                     break;
                 case 2:
-                    searchByMake();
+                    searchByMakeAndModel();
                     break;
-                case 3:
+                case 8:
                     addNewVehicle();
                     break;
                 case 4:
@@ -65,22 +66,25 @@ public class UserInterface {
         dealership.displayInventory();
     }
 
-    private void searchByMake() {
-
+    private void searchByMakeAndModel() {
         System.out.print("Enter the make of the vehicle to search: ");
-
         String make = scanner.nextLine();
-        List<Vehicle> results = dealership.searchByMake(make);
+
+        System.out.print("Enter the model of the vehicle to search: ");
+        String model = scanner.nextLine();
+
+        List<Vehicle> results = dealership.searchByMakeAndModel(make, model);
 
         if (results.isEmpty()) {
-            System.out.println("There is no result for make: " + make);
+            System.out.println("No vehicles found for make: " + make + " and model: " + model);
         } else {
-            System.out.println("Vehicle found:");
+            System.out.println("Vehicles found:");
             for (Vehicle vehicle : results) {
                 System.out.println(vehicle);
             }
         }
     }
+
     private void addNewVehicle() {
         System.out.print("Enter VIN: ");
         String vin = scanner.nextLine();
@@ -113,6 +117,25 @@ public class UserInterface {
         dealership.addVehicle(newVehicle);
 
         System.out.println("New vehicle added!");
+    }
+
+    private void findVehiclesByYearRange() {
+        System.out.print("Enter the minimum year: ");
+        int minYear = scanner.nextInt();
+        System.out.print("Enter the maximum year: ");
+        int maxYear = scanner.nextInt();
+        scanner.nextLine(); // Satır sonunu temizlemek için
+
+        List<Vehicle> results = dealership.findVehiclesByYearRange(minYear, maxYear);
+
+        if (results.isEmpty()) {
+            System.out.println("No vehicles found in the year range " + minYear + " - " + maxYear);
+        } else {
+            System.out.println("Vehicles found in the year range " + minYear + " - " + maxYear + ":");
+            for (Vehicle vehicle : results) {
+                System.out.println(vehicle);
+            }
+        }
     }
 
     private void updateVehicleDetails() {

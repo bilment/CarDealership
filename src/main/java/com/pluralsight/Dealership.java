@@ -27,13 +27,22 @@ public class Dealership {
         }
     }
 
-    public List<Vehicle> searchByMake(String make) {
+    public List<Vehicle> searchByMakeAndModel(String make, String model) {
         List<Vehicle> results = new ArrayList<>();
         for (Vehicle vehicle : inventory) {
-            if (vehicle.getMake().equalsIgnoreCase(make)) {
+            if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
                 results.add(vehicle);
             }
-            
+        }
+        return results;
+    }
+
+    public List<Vehicle> findVehiclesByYearRange(int minYear, int maxYear) {
+        List<Vehicle> results = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= minYear && vehicle.getYear() <= maxYear) {
+                results.add(vehicle);
+            }
         }
         return results;
     }

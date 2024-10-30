@@ -21,10 +21,13 @@ public class UserInterface {
             System.out.println("1. List all vehicles");
             System.out.println("2. Search vehicles by make/model");
             System.out.println("3. Find vehicle by year range");
-            System.out.println("4. Update vehicle details");
-            System.out.println("5. Reserve a vehicle for a customer");
-            System.out.println("6. Check and update vehicle service status");
-            System.out.println("8. Add a new vehicle");
+            System.out.println("4. Find vehicle by color");
+            System.out.println("5. Find vehicle by mileage range");
+            System.out.println("6. Find vehicle by type (car, truck, SUV, van)");
+            System.out.println("7. Update vehicle details");
+            System.out.println("8. Reserve a vehicle for a customer");
+            System.out.println("9. Check and update vehicle service status");
+            System.out.println("10. Add a new vehicle");
             System.out.println("99. Exit");
             System.out.print("Please enter your choice: ");
             int choice = scanner.nextInt();
@@ -37,17 +40,28 @@ public class UserInterface {
                 case 2:
                     searchByMakeAndModel();
                     break;
-                case 8:
-                    addNewVehicle();
+                case 3:
+                    findVehiclesByYearRange();
                     break;
                 case 4:
-                    updateVehicleDetails();
+                    findVehiclesByColor();
                     break;
                 case 5:
+                    findVehiclesByMileageRange();
+                case 6:
+                    findVehiclesByType();
+                    break;
+                case 7:
+                    updateVehicleDetails();
+                    break;
+                case 8:
                     reserveVehicle();
                     break;
-                case 6:
+                case 9:
                     checkAndUpdateServiceStatus();
+                    break;
+                case 10:
+                    addNewVehicle();
                     break;
                 case 99:
                     System.out.println("Exiting the program");
@@ -132,6 +146,57 @@ public class UserInterface {
             System.out.println("No vehicles found in the year range " + minYear + " - " + maxYear);
         } else {
             System.out.println("Vehicles found in the year range " + minYear + " - " + maxYear + ":");
+            for (Vehicle vehicle : results) {
+                System.out.println(vehicle);
+            }
+        }
+    }
+
+    private void findVehiclesByColor() {
+        System.out.print("Enter the color of the vehicle to search: ");
+        String color = scanner.nextLine();
+
+        List<Vehicle> results = dealership.findVehiclesByColor(color);
+
+        if (results.isEmpty()) {
+            System.out.println("No vehicles found with color: " + color);
+        } else {
+            System.out.println("Vehicles found with color: " + color);
+            for (Vehicle vehicle : results) {
+                System.out.println(vehicle);
+            }
+        }
+    }
+
+    private void findVehiclesByMileageRange() {
+        System.out.print("Enter the minimum mileage: ");
+        int minMileage = scanner.nextInt();
+        System.out.print("Enter the maximum mileage: ");
+        int maxMileage = scanner.nextInt();
+        scanner.nextLine(); // Satır sonunu temizlemek için
+
+        List<Vehicle> results = dealership.findVehiclesByMileageRange(minMileage, maxMileage);
+
+        if (results.isEmpty()) {
+            System.out.println("No vehicles found in the mileage range " + minMileage + " - " + maxMileage + " km");
+        } else {
+            System.out.println("Vehicles found in the mileage range " + minMileage + " - " + maxMileage + " km:");
+            for (Vehicle vehicle : results) {
+                System.out.println(vehicle);
+            }
+        }
+    }
+
+    private void findVehiclesByType() {
+        System.out.print("Enter the type of vehicle to search (e.g., car, truck, SUV, van): ");
+        String type = scanner.nextLine();
+
+        List<Vehicle> results = dealership.findVehiclesByType(type);
+
+        if (results.isEmpty()) {
+            System.out.println("No vehicles found of type: " + type);
+        } else {
+            System.out.println("Vehicles found of type: " + type);
             for (Vehicle vehicle : results) {
                 System.out.println(vehicle);
             }

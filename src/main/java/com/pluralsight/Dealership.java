@@ -47,6 +47,36 @@ public class Dealership {
         return results;
     }
 
+    public List<Vehicle> findVehiclesByColor(String color) {
+        List<Vehicle> results = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                results.add(vehicle);
+            }
+        }
+        return results;
+    }
+
+    public List<Vehicle> findVehiclesByMileageRange(int minMileage, int maxMileage) {
+        List<Vehicle> results = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= minMileage && vehicle.getOdometer() <= maxMileage) {
+                results.add(vehicle);
+            }
+        }
+        return results;
+    }
+
+    public List<Vehicle> findVehiclesByType(String type) {
+        List<Vehicle> results = new ArrayList<>();
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getType().equalsIgnoreCase(type)) {
+                results.add(vehicle);
+            }
+        }
+        return results;
+    }
+
     public String getName() {
         return name;
     }

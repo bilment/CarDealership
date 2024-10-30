@@ -11,10 +11,14 @@ This program uses a CSV file to store all car information, so it’s easy to upd
 
 List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
 
-- As a dealership manager, I want to add new cars to the inventory so that the list of cars stays current.
-- As a salesperson, I want to search for cars by make so that I can find cars that match customer needs quickly.
-- As a dealership employee, I want to see all cars in the inventory so that I can help customers find options.
- -As a developer, I want the program to handle errors smoothly so that it runs without issues, even if there’s incorrect data.
+- As a user, I want to display the list of all vehicle so that I can see all the cars in the inventory.
+- As a user, I want to search vehicle by make/model so that I can find cars that match.
+- As a user, I want to search vehicle by year range so that I can find cars that match.
+- As a user, I want to search vehicle by color l so that I can find cars that match.
+- As a user, I want to search vehicle by mileage range so that I can find cars that match.
+- As a user, I want to search vehicle by type (car, truck, SUV, van) so that I can find cars that match.
+- As a user, I want to add the new cars to the inventory so that I can manage the inventory.
+- As a user, I want to remove cars from the inventory so that I can manage the inventory.
 
 
 ## Setup
@@ -43,7 +47,14 @@ Follow these steps to get your application running within IntelliJ IDEA:
 
 ## Demo
 
-- Running ![CarDealership.png](imgs/CarDealership.png)
+- AddVehicle ![addVehicle.png](imgs/addVehicle.png)
+- FoundByColor ![foundByColor.png](imgs/foundByColor.png)
+- FoundByMake/Model ![foundByMakeModel.png](imgs/foundByMakeModel.png)
+- FoundByMileageRange ![foundByMileageRange.png](imgs/foundByMileageRange.png)
+- FoundByType ![foundByType.png](imgs/foundByType.png)
+- FoundByYear ![foundByYear.png](imgs/foundByYear.png)
+- ListAllCar ![ListAllCar.png](imgs/ListAllCar.png)
+- RemoveVehicle ![removeVehicle.png](imgs/removeVehicle.png)
 
 ## Future Work
 

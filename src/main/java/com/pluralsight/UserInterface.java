@@ -20,7 +20,11 @@ public class UserInterface {
             System.out.println("Welcome to " + dealership.getName() + " Dealership!");
             System.out.println("1. List all vehicles");
             System.out.println("2. Search vehicles by make");
-            System.out.println("3. Exit");
+            System.out.println("3. Add a new vehicle");
+            System.out.println("4. Update vehicle details");
+            System.out.println("5. Reserve a vehicle for a customer");
+            System.out.println("6. Check and update vehicle service status");
+            System.out.println("99. Exit");
             System.out.print("Please enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine(); // consume next line
@@ -33,6 +37,18 @@ public class UserInterface {
                     searchByMake();
                     break;
                 case 3:
+                    addNewVehicle();
+                    break;
+                case 4:
+                    updateVehicleDetails();
+                    break;
+                case 5:
+                    reserveVehicle();
+                    break;
+                case 6:
+                    checkAndUpdateServiceStatus();
+                    break;
+                case 99:
                     System.out.println("Exiting the program");
                     running = false;
                     break;
@@ -97,5 +113,17 @@ public class UserInterface {
         dealership.addVehicle(newVehicle);
 
         System.out.println("New vehicle added!");
+    }
+
+    private void updateVehicleDetails() {
+
+    }
+
+    private void reserveVehicle() {
+
+    }
+
+    private void checkAndUpdateServiceStatus() {
+
     }
 }

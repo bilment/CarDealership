@@ -77,6 +77,16 @@ public class Dealership {
         return results;
     }
 
+    public boolean removeVehicleByVin(String vin) {
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVin().equalsIgnoreCase(vin)) {
+                inventory.remove(vehicle);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getName() {
         return name;
     }

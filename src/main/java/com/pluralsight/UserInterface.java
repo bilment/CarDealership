@@ -24,10 +24,8 @@ public class UserInterface {
             System.out.println("4. Find vehicle by color");
             System.out.println("5. Find vehicle by mileage range");
             System.out.println("6. Find vehicle by type (car, truck, SUV, van)");
-            System.out.println("7. Update vehicle details");
-            System.out.println("8. Reserve a vehicle for a customer");
-            System.out.println("9. Check and update vehicle service status");
-            System.out.println("10. Add a new vehicle");
+            System.out.println("7. Add a new vehicle");
+            System.out.println("8. Remove a vehicle");
             System.out.println("99. Exit");
             System.out.print("Please enter your choice: ");
             int choice = scanner.nextInt();
@@ -52,16 +50,10 @@ public class UserInterface {
                     findVehiclesByType();
                     break;
                 case 7:
-                    updateVehicleDetails();
+                    addNewVehicle();
                     break;
                 case 8:
-                    reserveVehicle();
-                    break;
-                case 9:
-                    checkAndUpdateServiceStatus();
-                    break;
-                case 10:
-                    addNewVehicle();
+                    removeVehicle();
                     break;
                 case 99:
                     System.out.println("Exiting the program");
@@ -130,6 +122,10 @@ public class UserInterface {
         Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
         dealership.addVehicle(newVehicle);
 
+        DealershipFileManager fileManager = new DealershipFileManager();
+        fileManager.saveVehicleToFile(newVehicle);
+
+
         System.out.println("New vehicle added!");
     }
 
@@ -138,7 +134,7 @@ public class UserInterface {
         int minYear = scanner.nextInt();
         System.out.print("Enter the maximum year: ");
         int maxYear = scanner.nextInt();
-        scanner.nextLine(); // Satır sonunu temizlemek için
+        scanner.nextLine();
 
         List<Vehicle> results = dealership.findVehiclesByYearRange(minYear, maxYear);
 
@@ -173,7 +169,7 @@ public class UserInterface {
         int minMileage = scanner.nextInt();
         System.out.print("Enter the maximum mileage: ");
         int maxMileage = scanner.nextInt();
-        scanner.nextLine(); // Satır sonunu temizlemek için
+        scanner.nextLine();
 
         List<Vehicle> results = dealership.findVehiclesByMileageRange(minMileage, maxMileage);
 
@@ -203,15 +199,16 @@ public class UserInterface {
         }
     }
 
-    private void updateVehicleDetails() {
+    private void removeVehicle() {
+        System.out.print("Enter the VIN of the vehicle to remove: ");
+        String vin = scanner.nextLine();
 
-    }
+        boolean success = dealership.removeVehicleByVin(vin);
 
-    private void reserveVehicle() {
-
-    }
-
-    private void checkAndUpdateServiceStatus() {
-
+        if (success) {
+            System.out.println("Vehicle with VIN " + vin + " has been removed from the inventory.");
+        } else {
+            System.out.println("Vehicle with VIN " + vin + " was not found in the inventory.");
+        }
     }
 }
